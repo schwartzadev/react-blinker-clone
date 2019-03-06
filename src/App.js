@@ -61,6 +61,8 @@ class MyComponent extends React.Component {
     }
   }
 
+  generateMilesInfo(miles) { return miles.toLocaleString() + ' mi'; }
+
   render() {
     const { error, isLoaded, cars } = this.state;
     if (error) {
@@ -78,7 +80,7 @@ class MyComponent extends React.Component {
                 <div class="car-info">
                   <span class="price">{this.generatePriceInfo(car.asking_price)}</span>
                   {this.generateMonthlyPaymentHTML(car.estimated_monthly_payment)}
-                  <span class="miles"></span>
+                  <span class="miles">{this.generateMilesInfo(car.miles)}</span>
                 </div>
               </a>
             </div>
