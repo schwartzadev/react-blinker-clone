@@ -51,6 +51,10 @@ class MyComponent extends React.Component {
 
   generateBlinkerURL(id) { return 'https://cars.blinker.com/listing/' + id; }
 
+  generatePriceInfo(asking_price) {
+    return '$' + asking_price.toLocaleString();
+  }
+
   render() {
     const { error, isLoaded, cars } = this.state;
     if (error) {
@@ -65,9 +69,10 @@ class MyComponent extends React.Component {
              <a href={this.generateBlinkerURL(car.id)}>
                 <img src={car.thumbnail_url}></img>
                 <h3 class="title">{car.headline}</h3>
-                <div class="car-info"></div>
-                <span class="price"></span>
-                <span class="miles"></span>
+                <div class="car-info">
+                  <span class="price">{this.generatePriceInfo(car.asking_price)}</span>
+                  <span class="miles"></span>
+                </div>
               </a>
             </div>
             ))};
