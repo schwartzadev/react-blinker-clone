@@ -1,33 +1,79 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  body {
+    background-color: #eee;
+    font-family: 'Nunito', sans-serif;
   }
-  to {
-    transform: rotate(360deg);
+
+  img {
+    width: 100%;
   }
-}
+
+  .car {
+    display: inline-block;
+    margin: 10px 0 0 10px;
+    width: calc(100% * (1/3) - 10px);
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    -webkit-box-shadow: 2px 2px 5px -3px rgba(0,0,0,0.25);
+    -moz-box-shadow: 2px 2px 5px -3px rgba(0,0,0,0.25);
+    box-shadow: 2px 2px 5px -3px rgba(0,0,0,0.25);
+    -webkit-transition: box-shadow .25s ease-out;
+    -moz-transition: box-shadow .25s ease-out;
+    -o-transition: box-shadow .25s ease-out;
+    transition: box-shadow .25s ease-out;
+  }
+
+  .car:hover {
+    -webkit-box-shadow: 4px 4px 10px -3px rgba(0,0,0,0.25);
+    -moz-box-shadow: 4px 4px 10px -3px rgba(0,0,0,0.25);
+    box-shadow: 4px 4px 10px -3px rgba(0,0,0,0.25);
+  }
+
+  #main {
+    display: flex;
+    flex-wrap:wrap;
+    margin: 75px 50px 0 300px;
+  }
+
+  .miles {
+    float: right;
+    margin-right: 1em;
+    font-size: .8em;
+  }
+
+  .price {
+    float: left;
+    margin-left: 1em;
+    margin-bottom: .35em;
+  }
+
+  .blue {
+    color: #00d1e8;
+  }
+
+  .car-info {
+    font-weight: bold;
+    font-size: .9em;
+    color: #595959;
+  }
+
+  .car .title {
+    margin-left: .8em;
+    margin-bottom: .25em;
+    font-size: 1em;
+  }
+
+  .car a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  #loader {
+    display: flex;
+    height: 100%;
+  }
+
+  #load-img {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+  }
