@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -49,6 +48,31 @@ class MyComponent extends React.Component {
       )
   }
 
+  render() {
+    const { error, isLoaded, cars } = this.state;
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Loading...</div>;
+    } else {
+      return (
+        <div>
+          {cars.map(info => (
+            <Car car={info} />
+          ))};
+        </div>
+      )
+    }
+  }
+}
+
+export default MyComponent;
+
+class Car extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   generateBlinkerURL(id) { return 'https://cars.blinker.com/listing/' + id; }
 
   generatePriceInfo(asking_price) { return '$' + asking_price.toLocaleString(); }
@@ -64,40 +88,17 @@ class MyComponent extends React.Component {
   generateMilesInfo(miles) { return miles.toLocaleString() + ' mi'; }
 
   render() {
-    const { error, isLoaded, cars } = this.state;
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-      return <div>Loading...</div>;
-    } else {
-      return (
-        <ul>
-          {cars.map(car => (
-            <div class="car" id={car.id}>
-             <a href={this.generateBlinkerURL(car.id)}>
-                <img src={car.thumbnail_url}></img>
-                <h3 class="title">{car.headline}</h3>
-                <div class="car-info">
-                  <span class="price">{this.generatePriceInfo(car.asking_price)}</span>
-                  {this.generateMonthlyPaymentHTML(car.estimated_monthly_payment)}
-                  <span class="miles">{this.generateMilesInfo(car.miles)}</span>
-                </div>
-              </a>
-            </div>
-          ))};
-        </ul>
-      )
-    }
-  }
-}
-
-export default MyComponent;
-
-class Car extends Component {
-  render() {
     return (
-      <div>
-        <p>Hiii</p>
+      <div class="car" id={this.props.car.id}>
+       <a href={this.generateBlinkerURL(this.props.car.id)}>
+          <img src={this.props.car.thumbnail_url}></img>
+          <h3 class="title">{this.props.car.headline}</h3>
+          <div class="car-info">
+            <span class="price">{this.generatePriceInfo(this.props.car.asking_price)}</span>
+            {this.generateMonthlyPaymentHTML(this.props.car.estimated_monthly_payment)}
+            <span class="miles">{this.generateMilesInfo(this.props.car.miles)}</span>
+          </div>
+        </a>
       </div>
     );
   }
