@@ -3,6 +3,12 @@ body {
   font-family: 'Nunito', sans-serif;
 }
 
+#root {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 75px 50px 0 300px;
+}
+
 img {
   width: 100%;
 }
