@@ -2,17 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-
-      </div>
-    );
-  }
-}
-
-
-class MyComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -62,7 +51,7 @@ class MyComponent extends React.Component {
   }
 }
 
-export default MyComponent;
+export default App;
 
 class Car extends Component {
   constructor(props) {
@@ -92,7 +81,7 @@ class Car extends Component {
           <div class="car-info">
             <span class="price">{this.generatePriceInfo(this.props.car.asking_price)}</span>
             {this.generateMonthlyPaymentHTML(this.props.car.estimated_monthly_payment)}
-            <span class="miles">{this.generateMilesInfo(this.props.car.miles)}</span>
+            <span class="miles">{this.props.car.city_state} &bull; {this.generateMilesInfo(this.props.car.miles)}</span>
           </div>
         </a>
       </div>
