@@ -55,9 +55,9 @@ class MyComponent extends React.Component {
 
   generateMonthlyPaymentHTML(monthly_payment) {
     if (monthly_payment == null) {
-      return null
+      return null;
     } else {
-      return <span> or <span class="blue">{this.generatePriceInfo(monthly_payment)}/mo</span></span>
+      return <span> or <span class="blue">{this.generatePriceInfo(monthly_payment)}/mo</span></span>;
     }
   }
 
@@ -84,7 +84,7 @@ class MyComponent extends React.Component {
                 </div>
               </a>
             </div>
-            ))};
+          ))};
         </ul>
       )
     }
