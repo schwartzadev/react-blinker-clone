@@ -25,4 +25,15 @@ class App extends Component {
   }
 }
 
+class Car extends Component {
+  render() {
+    return (
+      <div>
+        <p>Hiii</p>
+      </div>
+    );
+  }
+}
+
 export default App;
+export default Car;
