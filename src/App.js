@@ -51,8 +51,14 @@ class MyComponent extends React.Component {
 
   generateBlinkerURL(id) { return 'https://cars.blinker.com/listing/' + id; }
 
-  generatePriceInfo(asking_price) {
-    return '$' + asking_price.toLocaleString();
+  generatePriceInfo(asking_price) { return '$' + asking_price.toLocaleString(); }
+
+  generateMonthlyPaymentHTML(monthly_payment) {
+    if (monthly_payment == null) {
+      return null
+    } else {
+      return <span> or <span class="blue">{this.generatePriceInfo(monthly_payment)}/mo</span></span>
+    }
   }
 
   render() {
@@ -71,6 +77,7 @@ class MyComponent extends React.Component {
                 <h3 class="title">{car.headline}</h3>
                 <div class="car-info">
                   <span class="price">{this.generatePriceInfo(car.asking_price)}</span>
+                  {this.generateMonthlyPaymentHTML(car.estimated_monthly_payment)}
                   <span class="miles"></span>
                 </div>
               </a>
