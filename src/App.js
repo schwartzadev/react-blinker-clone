@@ -49,6 +49,8 @@ class MyComponent extends React.Component {
       )
   }
 
+  generateBlinkerURL(id) { return 'https://cars.blinker.com/listing/' + id; }
+
   render() {
     const { error, isLoaded, cars } = this.state;
     if (error) {
@@ -58,11 +60,11 @@ class MyComponent extends React.Component {
     } else {
       return (
         <ul>
-          {cars.map(item => (
-            <div class="car" id={item.id}>
-              <a href="">
-                <img src={item.thumbnail_url}></img>
-                <h3 class="title">{item.headline}</h3>
+          {cars.map(car => (
+            <div class="car" id={car.id}>
+             <a href={this.generateBlinkerURL(car.id)}>
+                <img src={car.thumbnail_url}></img>
+                <h3 class="title">{car.headline}</h3>
                 <div class="car-info"></div>
                 <span class="price"></span>
                 <span class="miles"></span>
